@@ -16,14 +16,14 @@ import java.util.UUID;
 public class ServerPlayNetworkHandlerMixin {
     @Redirect(
             method = "onDisconnected(Lnet/minecraft/text/Text;)V",
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/server/PlayerManager;broadcastChatMessage(Lnet/minecraft/text/Text;Lnet/minecraft/network/MessageType;Ljava/util/UUID;)V")
+            at = @At(value = "INVOKE", target = "Lnet/minecraft/server/PlayerManager;broadcast(Lnet/minecraft/text/Text;Lnet/minecraft/network/MessageType;Ljava/util/UUID;)V")
     )
-    public void onDisconnectedBroadcastChatMessageProxy(PlayerManager playerManager, Text _message, MessageType type, UUID sender, Text reason) {
+    public void onDisconnectedBroadcastProxy(PlayerManager playerManager, Text _message, MessageType type, UUID sender, Text reason) {
         MutableText message = ((MutableText) _message)
                 .append(new LiteralText(" ("))
                 .append(reason)
                 .append(new LiteralText(")"));
 
-        playerManager.broadcastChatMessage(message, type, sender);
+        playerManager.broadcast(message, type, sender);
     }
 }
