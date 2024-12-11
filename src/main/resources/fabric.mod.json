@@ -5,11 +5,11 @@
   "name": "Fabric Disconnect Reason",
   "description": "Shows the disconnect reason on the global chat.",
   "authors": [
-    "pwnedgod"
+    "ezraisw"
   ],
   "contact": {
     "homepage": "https://inspw.com",
-    "sources": "https://github.com/pwnedgod/fabric-disconnect-reason"
+    "sources": "https://github.com/ezraisw/fabric-disconnect-reason"
   },
   "license": "CC0-1.0",
   "icon": "assets/disconnectreason/icon.png",
@@ -19,7 +19,6 @@
   ],
   "depends": {
     "fabricloader": ">=0.14.21",
-    "minecraft": ">=1.20.1",
-    "fabric-api": "*"
+    "minecraft": ">=1.20.1"
   }
 }
