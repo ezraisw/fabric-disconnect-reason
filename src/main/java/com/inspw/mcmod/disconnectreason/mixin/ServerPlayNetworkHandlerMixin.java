@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 @Mixin(ServerPlayNetworkHandler.class)
 public class ServerPlayNetworkHandlerMixin {
     @Redirect(method = "onDisconnected(Lnet/minecraft/text/Text;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/PlayerManager;broadcast(Lnet/minecraft/text/Text;Z)V"))
-    public void cleanUpBroadcastProxy(PlayerManager playerManager, Text _message, boolean overlay, Text reason) {
+    public void onDisconnectedBroadcastProxy(PlayerManager playerManager, Text _message, boolean overlay, Text reason) {
         MutableText message = ((MutableText) _message)
                 .append(" (")
                 .append(reason)
